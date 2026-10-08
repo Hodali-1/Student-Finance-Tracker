@@ -7,7 +7,7 @@
   {"id":"txn-6","description":"Notebooks and pens","amount":15.20,"category":"Books","date":"2026-09-05","createdAt":"2026-09-05T10:00:00.000Z","updatedAt":"2026-09-05T10:00:00.000Z"},
   {"id":"txn-7","description":"Taxi fare home","amount":6.00,"category":"Transport","date":"2026-09-12","createdAt":"2026-09-12T10:00:00.000Z","updatedAt":"2026-09-12T10:00:00.000Z"},
   {"id":"txn-8","description":"Movie night ticket","amount":12.00,"category":"Entertainment","date":"2026-09-15","createdAt":"2026-09-15T10:00:00.000Z","updatedAt":"2026-09-15T10:00:00.000Z"},
-  {"id":"txn-9","description":"Grocery snacks","amount":22.40,"category":"Food","date":"2026-09-28","createdAt":"2026-09-18T10:00:00.000Z","updatedAt":"2026-09-18T10:00:00.000Z"},
+  {"id":"txn-9","description":"Grocery snacks","amount":22.40,"category":"Food","date":"2026-09-18","createdAt":"2026-09-18T10:00:00.000Z","updatedAt":"2026-09-18T10:00:00.000Z"},
   {"id":"txn-10","description":"Printing assignement","amount":4.50,"category":"Other","date":"2026-09-22","createdAt":"2026-09-22T10:00:00.000Z","updatedAt":"2026-09-22T10:00:00.000Z"}
 
-]  
+]     

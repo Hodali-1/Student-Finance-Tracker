@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Tracker</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+     <a href="#main-content" class="skip-link">Skip to main content</a>
+
+     <!-- Header& Navaigation-->
+    <header class="site-header">
+        <div class="container header-inner">
+            <h1>Student Finance Tracker</h1>
+            <nav aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#transactions">Transactions</a></li>
+                    <li><a href="#add-transaction">Add New Transaction</a></li>
+                    <li><a href="#reports">Reports</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--Main content -->
+    <main id="main-content" class="container">
+
+        <!-- Dashboard Section -->
+         <section id="dashboard" class="dashboard-section">
+            <h2> Finacial Overview</h2>
+            <div class="stats-grid">
+                <h3>Total spent</h3>
+                <p id="total-spent" class="stat-value">0frw</p>
+            </div>
+            <div class="stat-card">
+                <h3>Transactions</h3>
+                <p id="total-income" class="stat-value">0</p>
+            </div>
+         </section>
+
+         <!-- Add Transaction Form Section -->
+          <section id="add-transaction" class="form-section">
+            <h2>Add Transaction</h2>
+            <form id="transaction-form" aria-label="Add Transaction Form">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" required placeholder="e.g., Textbook">
+                </div>
+                
+                <div class="form-group">
+                    <label for="amount">Amount (frw)</label>
+                    <input type="number" id="amount" name="amount" step="1" required placeholder="0 frw">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Books">Books</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Fees">Fees</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- Transaction table section-->
+        <section id="transactions" class="table-section">
+            <h2> Transactions History</h2>
+            <div class="table-responsive">
+                <table id="transaction-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Categgory</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transaction-list">
+                        <!-- Dynamic rows will be inserted here via JS-->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer-->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Student Finance Tracker. Built for academic success.</p>
+        </div>
+    </footer>  
+</body>
+</html>
