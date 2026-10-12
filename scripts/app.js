@@ -63,6 +63,47 @@ class FinanceStore {
             return acc;
         }, { balance: 0, income: 0, expense: 0 });
     }
+
+    getCategoryBreakdown() {
+        const expenses = this.transactions.filter(tx => tx.type === "expense");
+        const totals = {};
+        let totalExpense = 0;
+
+        expenses.forEach(tx => {
+            totals[tx.category] = (totals[tx.category] || 0) + tx.amount;
+            totalExpense += tx.amount;
+        });
+
+        return { totals, totalExpense };
+    }
+
+    exportCSV() {
+        if (this.transactions.length === 0) return;
+        const headers = ["ID", "Date", "Description", "Category", "Type", "Amount (FRW)"];
+        const rows = this.transactions.map(tx => [
+            tx.id,
+            tx.date,
+            `"${tx.description.replace(/"/g, '""')}"`,
+            tx.category,
+            tx.type,
+            tx.amount
+        ]);
+
+        const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", `student_finance_report_${new Date().toISOString().split('T')[0]}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }
+
+    resetData() {
+        localStorage.removeItem(this.storageKey);
+        this.transactions = [...SEED_TRANSACTIONS];
+        this.saveTransactions(this.transactions);
+    }
 }
 
 export const store = new FinanceStore();
@@ -73,6 +114,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalBalanceEl = document.getElementById("total-balance");
     const totalIncomeEl = document.getElementById("total-income");
     const totalExpenseEl = document.getElementById("total-expense");
+    const searchInput = document.getElementById("search-input");
+    const filterCategory = document.getElementById("filter-category");
+    const categoryBreakdownEl = document.getElementById("category-breakdown");
+    const btnExportCsv = document.getElementById("btn-export-csv");
+    const btnExportPdf = document.getElementById("btn-export-pdf");
+    const btnReset = document.getElementById("btn-reset");
 
     function render() {
         const totals = store.getTotals();
@@ -80,9 +127,50 @@ document.addEventListener("DOMContentLoaded", () => {
         if (totalIncomeEl) totalIncomeEl.textContent = `${totals.income.toFixed(2)} frw`;
         if (totalExpenseEl) totalExpenseEl.textContent = `${totals.expense.toFixed(2)} frw`;
 
+        // Render Analytics Category Breakdown
+        if (categoryBreakdownEl) {
+            const { totals: catTotals, totalExpense } = store.getCategoryBreakdown();
+            categoryBreakdownEl.innerHTML = "";
+            
+            if (Object.keys(catTotals).length === 0) {
+                categoryBreakdownEl.innerHTML = `<p style="color: var(--text-muted); font-size: 0.85rem;">No expense data available for breakdown.</p>`;
+            } else {
+                for (const [category, amount] of Object.entries(catTotals)) {
+                    const percentage = totalExpense > 0 ? ((amount / totalExpense) * 100).toFixed(1) : 0;
+                    const item = document.createElement("div");
+                    item.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+                            <span>${category}</span>
+                            <span style="font-family: var(--font-mono);">${amount.toFixed(2)} frw (${percentage}%)</span>
+                        </div>
+                        <div style="width: 100%; height: 6px; background: var(--well-bg); border-radius: 3px; overflow: hidden; border: 1px solid var(--border);">
+                            <div style="width: ${percentage}%; height: 100%; background: var(--accent); box-shadow: 0 0 8px var(--accent);"></div>
+                        </div>
+                    `;
+                    categoryBreakdownEl.appendChild(item);
+                }
+            }
+        }
+
+        // Filter and Search logic
+        const searchTerm = searchInput ? searchInput.value.toLowerCase() : "";
+        const selectedCategory = filterCategory ? filterCategory.value : "";
+
+        const filteredTransactions = store.transactions.filter(tx => {
+            const matchesSearch = tx.description.toLowerCase().includes(searchTerm);
+            const matchesCategory = selectedCategory === "" || tx.category === selectedCategory;
+            return matchesSearch && matchesCategory;
+        });
+
+        // Render Transaction Table
         if (transactionTableBody) {
             transactionTableBody.innerHTML = "";
-            store.transactions.forEach(tx => {
+            if (filteredTransactions.length === 0) {
+                transactionTableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted);">No matching transactions found.</td></tr>`;
+                return;
+            }
+
+            filteredTransactions.forEach(tx => {
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
                     <td>${tx.date}</td>
@@ -128,6 +216,30 @@ document.addEventListener("DOMContentLoaded", () => {
             if (e.target.classList.contains("btn-delete")) {
                 const id = e.target.getAttribute("data-id");
                 store.deleteTransaction(id);
+                render();
+            }
+        });
+    }
+
+    if (searchInput) searchInput.addEventListener("input", render);
+    if (filterCategory) filterCategory.addEventListener("change", render);
+
+    if (btnExportCsv) {
+        btnExportCsv.addEventListener("click", () => {
+            store.exportCSV();
+        });
+    }
+
+    if (btnExportPdf) {
+        btnExportPdf.addEventListener("click", () => {
+            window.print();
+        });
+    }
+
+    if (btnReset) {
+        btnReset.addEventListener("click", () => {
+            if (confirm("Are you sure you want to reset all transactions back to default seed data?")) {
+                store.resetData();
                 render();
             }
         });

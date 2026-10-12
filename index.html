@@ -21,9 +21,18 @@
         </div>
     </header>
 
+    
     <main id="main-content" class="container">
+        
         <!-- Dashboard / Stats Section -->
-        <section class="dashboard-section" id="dashboard">
+
+        <section class="dashboard-section" id="dashboard"></section>
+            <div class="dashboard-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button id="btn-export-csv" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Export CSV</button>
+                <button id="btn-export-pdf" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Print / PDF</button>
+                <button id="btn-reset" style="font-size: 0.8rem; padding: 0.4rem 0.8rem; border-color: rgb(var(--danger-rgb) / 0.4);">Reset Data</button>
+            </div>
+            
             <h2>Financial Overview</h2>
             <div class="stats-grid">
                 <div class="stat-card">
@@ -37,6 +46,15 @@
                 <div class="stat-card">
                     <h3>Total Expenses</h3>
                     <div class="stat-value" id="total-expense" style="color: var(--danger);">0 frw</div>
+                </div>
+            </div>
+            
+
+            <!-- Visual Analytics Breakdown -->
+            <div class="analytics-container" style="margin-top: 1.5rem;">
+                <h3>Spending by Category</h3>
+                <div id="category-breakdown" class="breakdown-list" style="margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <!-- Dynamically rendered by JS -->
                 </div>
             </div>
         </section>
@@ -82,9 +100,30 @@
             </form>
         </section>
 
-        <!-- Transaction Table Section -->
+        <!-- Transaction Table & Filter Section -->
         <section class="table-section" id="transactions">
             <h2>Transactions History</h2>
+            
+            <!-- Search & Filter Controls -->
+            <div class="controls-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group" style="margin: 0;">
+                    <input type="text" id="search-input" placeholder="Search description...">
+                </div>
+                <div class="form-group" style="margin: 0;">
+                    <select id="filter-category">
+                        <option value="">All Categories</option>
+                        <option value="Tuition">Tuition</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Food">Food</option>
+                        <option value="Books">Books</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Supplies">Supplies</option>
+                        <option value="Income">Income</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table>
                     <thead>
