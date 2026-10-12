@@ -21,17 +21,29 @@
         </div>
     </header>
 
-    
     <main id="main-content" class="container">
-        
-       <!-- Dashboard / Stats Section -->
+        <!-- Dashboard / Stats Section -->
         <section class="dashboard-section" id="dashboard">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
                 <h2 style="margin-bottom: 0;">Financial Overview</h2>
-                <div class="dashboard-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <div class="dashboard-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                    <input type="file" id="import-file-input" accept=".json" style="display: none;">
+                    <button id="btn-import" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Import JSON</button>
                     <button id="btn-export-csv" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Export CSV</button>
                     <button id="btn-export-pdf" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Print / PDF</button>
                     <button id="btn-reset" style="font-size: 0.8rem; padding: 0.4rem 0.8rem; border-color: rgb(var(--danger-rgb) / 0.4);">Reset Data</button>
+                </div>
+            </div>
+
+            <!-- Currency Settings Bar -->
+            <div style="display: flex; justify-content: space-between; align-items: center; background: var(--well-bg); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                <span style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Preferences / Currency Unit</span>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <select id="currency-select" style="padding: 0.3rem 0.6rem; font-size: 0.85rem;">
+                        <option value="frw">FRW (Rwandan Franc)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                    </select>
                 </div>
             </div>
 
@@ -80,7 +92,6 @@
             </div>
         </section>
 
-        
         <!-- Add Transaction Form Section -->
         <section class="form-section">
             <h2>Add Transaction</h2>
@@ -90,7 +101,7 @@
                     <input type="text" id="description" placeholder="e.g., Textbook" required>
                 </div>
                 <div class="form-group">
-                    <label for="amount">Amount (FRW)</label>
+                    <label for="amount">Amount</label>
                     <input type="number" id="amount" step="0.01" placeholder="0.00" required>
                 </div>
                 <div class="form-group">

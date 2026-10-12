@@ -13,7 +13,7 @@ const SEED_TRANSACTIONS = [
 
 class FinanceStore {
     constructor() {
-        this.storageKey = "student_finance_transactions_v1";
+        this.storageKey = "student_finance_transactions_v2";
         this.transactions = this.loadTransactions();
     }
 
@@ -42,6 +42,14 @@ class FinanceStore {
 
     saveBudgetCap(cap) {
         localStorage.setItem(this.storageKey + "_cap", cap);
+    }
+
+    loadCurrency() {
+        return localStorage.getItem(this.storageKey + "_currency") || "frw";
+    }
+
+    saveCurrency(currency) {
+        localStorage.setItem(this.storageKey + "_currency", currency);
     }
 
     addTransaction(transaction) {
@@ -88,7 +96,7 @@ class FinanceStore {
 
     exportCSV() {
         if (this.transactions.length === 0) return;
-        const headers = ["ID", "Date", "Description", "Category", "Type", "Amount (FRW)"];
+        const headers = ["ID", "Date", "Description", "Category", "Type", "Amount"];
         const rows = this.transactions.map(tx => [
             tx.id,
             tx.date,
@@ -108,9 +116,41 @@ class FinanceStore {
         link.remove();
     }
 
+    importJSON(fileText) {
+        try {
+            const parsedData = JSON.parse(fileText);
+            
+            if (!Array.isArray(parsedData)) {
+                throw new Error("Invalid format: Root structure must be an array.");
+            }
+
+            const validTransactions = parsedData.map(tx => {
+                if (!tx.description || typeof tx.amount !== 'number' || !tx.date) {
+                    throw new Error("Invalid transaction schema found during validation.");
+                }
+                return {
+                    id: tx.id || "tx-" + Date.now() + Math.random(),
+                    description: tx.description,
+                    amount: parseFloat(tx.amount),
+                    type: tx.type === 'income' ? 'income' : 'expense',
+                    date: tx.date,
+                    category: tx.category || "General"
+                };
+            });
+
+            this.transactions = validTransactions;
+            this.saveTransactions(this.transactions);
+            return { success: true, count: validTransactions.length };
+        } catch (e) {
+            console.error("JSON Import Validation Failed:", e);
+            return { success: false, error: e.message };
+        }
+    }
+
     resetData() {
         localStorage.removeItem(this.storageKey);
         localStorage.removeItem(this.storageKey + "_cap");
+        localStorage.removeItem(this.storageKey + "_currency");
         this.transactions = [...SEED_TRANSACTIONS];
         this.saveTransactions(this.transactions);
     }
@@ -130,6 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnExportCsv = document.getElementById("btn-export-csv");
     const btnExportPdf = document.getElementById("btn-export-pdf");
     const btnReset = document.getElementById("btn-reset");
+    const btnImport = document.getElementById("btn-import");
+    const importFileInput = document.getElementById("import-file-input");
+    const currencySelect = document.getElementById("currency-select");
     const budgetCapInput = document.getElementById("budget-cap-input");
     const btnSetCap = document.getElementById("btn-set-cap");
     const capProgressBar = document.getElementById("cap-progress-bar");
@@ -138,7 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const srAnnouncer = document.getElementById("sr-announcer");
 
     let currentCap = store.loadBudgetCap();
+    let currentCurrency = store.loadCurrency();
+
     if (budgetCapInput) budgetCapInput.value = currentCap;
+    if (currencySelect) currencySelect.value = currentCurrency;
 
     function announceToScreenReader(message) {
         if (srAnnouncer) {
@@ -148,16 +194,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function render() {
         const totals = store.getTotals();
-        if (totalBalanceEl) totalBalanceEl.textContent = `${totals.balance.toFixed(2)} frw`;
-        if (totalIncomeEl) totalIncomeEl.textContent = `${totals.income.toFixed(2)} frw`;
-        if (totalExpenseEl) totalExpenseEl.textContent = `${totals.expense.toFixed(2)} frw`;
+        if (totalBalanceEl) totalBalanceEl.textContent = `${totals.balance.toFixed(2)} ${currentCurrency}`;
+        if (totalIncomeEl) totalIncomeEl.textContent = `${totals.income.toFixed(2)} ${currentCurrency}`;
+        if (totalExpenseEl) totalExpenseEl.textContent = `${totals.expense.toFixed(2)} ${currentCurrency}`;
 
         // Budget Cap & Target Calculations
         const capPercentage = currentCap > 0 ? Math.min((totals.expense / currentCap) * 100, 100) : 0;
         const exactPercentage = currentCap > 0 ? ((totals.expense / currentCap) * 100).toFixed(1) : 0;
 
         if (capStatusText) {
-            capStatusText.textContent = `Cap: ${currentCap.toFixed(2)} frw | Spent: ${totals.expense.toFixed(2)} frw (${exactPercentage}%)`;
+            capStatusText.textContent = `Cap: ${currentCap.toFixed(2)} ${currentCurrency} | Spent: ${totals.expense.toFixed(2)} ${currentCurrency} (${exactPercentage}%)`;
         }
         if (capProgressBar) {
             capProgressBar.style.width = `${capPercentage}%`;
@@ -186,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     item.innerHTML = `
                         <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
                             <span>${category}</span>
-                            <span style="font-family: var(--font-mono);">${amount.toFixed(2)} frw (${percentage}%)</span>
+                            <span style="font-family: var(--font-mono);">${amount.toFixed(2)} ${currentCurrency} (${percentage}%)</span>
                         </div>
                         <div style="width: 100%; height: 6px; background: var(--well-bg); border-radius: 3px; overflow: hidden; border: 1px solid var(--border);">
                             <div style="width: ${percentage}%; height: 100%; background: var(--accent); box-shadow: 0 0 8px var(--accent);"></div>
@@ -222,13 +268,22 @@ document.addEventListener("DOMContentLoaded", () => {
                     <td>${tx.description}</td>
                     <td>${tx.category}</td>
                     <td style="color: ${tx.type === 'income' ? 'var(--primary)' : 'var(--danger)'}">
-                        ${tx.type === 'income' ? '+' : '-'}${Math.abs(tx.amount).toFixed(2)} frw
+                        ${tx.type === 'income' ? '+' : '-'}${Math.abs(tx.amount).toFixed(2)} ${currentCurrency}
                     </td>
                     <td><button data-id="${tx.id}" class="btn-delete">Delete</button></td>
                 `;
                 transactionTableBody.appendChild(tr);
             });
         }
+    }
+
+    if (currencySelect) {
+        currencySelect.addEventListener("change", (e) => {
+            currentCurrency = e.target.value;
+            store.saveCurrency(currentCurrency);
+            render();
+            announceToScreenReader(`Currency unit updated to ${currentCurrency.toUpperCase()}.`);
+        });
     }
 
     if (btnSetCap) {
@@ -238,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentCap = newCap;
                 store.saveBudgetCap(currentCap);
                 render();
-                announceToScreenReader(`Budget cap updated to ${currentCap} frw.`);
+                announceToScreenReader(`Budget cap updated to ${currentCap} ${currentCurrency}.`);
             }
         });
     }
@@ -265,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             transactionForm.reset();
             render();
-            announceToScreenReader(`Added transaction ${description} for ${amount} frw.`);
+            announceToScreenReader(`Added transaction ${description} for ${amount} ${currentCurrency}.`);
         });
     }
 
@@ -295,14 +350,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    if (btnImport && importFileInput) {
+        btnImport.addEventListener("click", () => {
+            importFileInput.click();
+        });
+
+        importFileInput.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const result = store.importJSON(event.target.result);
+                if (result.success) {
+                    render();
+                    alert(`Successfully imported ${result.count} transactions!`);
+                    announceToScreenReader(`Successfully imported ${result.count} transactions.`);
+                } else {
+                    alert(`Import failed: ${result.error}`);
+                }
+                importFileInput.value = "";
+            };
+            reader.readAsText(file);
+        });
+    }
+
     if (btnReset) {
         btnReset.addEventListener("click", () => {
-            if (confirm("Are you sure you want to reset all transactions back to default seed data?")) {
+            if (confirm("Are you sure you want to reset all transactions and settings back to defaults?")) {
                 store.resetData();
                 currentCap = store.loadBudgetCap();
+                currentCurrency = store.loadCurrency();
                 if (budgetCapInput) budgetCapInput.value = currentCap;
+                if (currencySelect) currencySelect.value = currentCurrency;
                 render();
-                announceToScreenReader("Data reset to default seed records.");
+                announceToScreenReader("Data and settings reset to default records.");
             }
         });
     }
