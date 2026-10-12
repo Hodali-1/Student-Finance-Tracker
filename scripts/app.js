@@ -35,6 +35,15 @@ class FinanceStore {
         localStorage.setItem(this.storageKey, JSON.stringify(data));
     }
 
+    loadBudgetCap() {
+        const storedCap = localStorage.getItem(this.storageKey + "_cap");
+        return storedCap ? parseFloat(storedCap) : 2500.00;
+    }
+
+    saveBudgetCap(cap) {
+        localStorage.setItem(this.storageKey + "_cap", cap);
+    }
+
     addTransaction(transaction) {
         const newTx = {
             id: "tx-" + Date.now(),
@@ -101,6 +110,7 @@ class FinanceStore {
 
     resetData() {
         localStorage.removeItem(this.storageKey);
+        localStorage.removeItem(this.storageKey + "_cap");
         this.transactions = [...SEED_TRANSACTIONS];
         this.saveTransactions(this.transactions);
     }
@@ -120,12 +130,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnExportCsv = document.getElementById("btn-export-csv");
     const btnExportPdf = document.getElementById("btn-export-pdf");
     const btnReset = document.getElementById("btn-reset");
+    const budgetCapInput = document.getElementById("budget-cap-input");
+    const btnSetCap = document.getElementById("btn-set-cap");
+    const capProgressBar = document.getElementById("cap-progress-bar");
+    const capStatusText = document.getElementById("cap-status-text");
+    const capWarning = document.getElementById("cap-warning");
+    const srAnnouncer = document.getElementById("sr-announcer");
+
+    let currentCap = store.loadBudgetCap();
+    if (budgetCapInput) budgetCapInput.value = currentCap;
+
+    function announceToScreenReader(message) {
+        if (srAnnouncer) {
+            srAnnouncer.textContent = message;
+        }
+    }
 
     function render() {
         const totals = store.getTotals();
         if (totalBalanceEl) totalBalanceEl.textContent = `${totals.balance.toFixed(2)} frw`;
         if (totalIncomeEl) totalIncomeEl.textContent = `${totals.income.toFixed(2)} frw`;
         if (totalExpenseEl) totalExpenseEl.textContent = `${totals.expense.toFixed(2)} frw`;
+
+        // Budget Cap & Target Calculations
+        const capPercentage = currentCap > 0 ? Math.min((totals.expense / currentCap) * 100, 100) : 0;
+        const exactPercentage = currentCap > 0 ? ((totals.expense / currentCap) * 100).toFixed(1) : 0;
+
+        if (capStatusText) {
+            capStatusText.textContent = `Cap: ${currentCap.toFixed(2)} frw | Spent: ${totals.expense.toFixed(2)} frw (${exactPercentage}%)`;
+        }
+        if (capProgressBar) {
+            capProgressBar.style.width = `${capPercentage}%`;
+            if (totals.expense > currentCap) {
+                capProgressBar.style.background = "var(--danger)";
+                capProgressBar.style.boxShadow = "0 0 10px var(--danger)";
+                if (capWarning) capWarning.style.display = "block";
+            } else {
+                capProgressBar.style.background = "var(--primary)";
+                capProgressBar.style.boxShadow = "none";
+                if (capWarning) capWarning.style.display = "none";
+            }
+        }
 
         // Render Analytics Category Breakdown
         if (categoryBreakdownEl) {
@@ -186,6 +231,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    if (btnSetCap) {
+        btnSetCap.addEventListener("click", () => {
+            const newCap = parseFloat(budgetCapInput.value);
+            if (!isNaN(newCap) && newCap >= 0) {
+                currentCap = newCap;
+                store.saveBudgetCap(currentCap);
+                render();
+                announceToScreenReader(`Budget cap updated to ${currentCap} frw.`);
+            }
+        });
+    }
+
     if (transactionForm) {
         transactionForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -208,6 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             transactionForm.reset();
             render();
+            announceToScreenReader(`Added transaction ${description} for ${amount} frw.`);
         });
     }
 
@@ -217,6 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const id = e.target.getAttribute("data-id");
                 store.deleteTransaction(id);
                 render();
+                announceToScreenReader("Transaction deleted.");
             }
         });
     }
@@ -240,7 +299,10 @@ document.addEventListener("DOMContentLoaded", () => {
         btnReset.addEventListener("click", () => {
             if (confirm("Are you sure you want to reset all transactions back to default seed data?")) {
                 store.resetData();
+                currentCap = store.loadBudgetCap();
+                if (budgetCapInput) budgetCapInput.value = currentCap;
                 render();
+                announceToScreenReader("Data reset to default seed records.");
             }
         });
     }
