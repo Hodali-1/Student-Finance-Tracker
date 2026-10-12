@@ -1,13 +1,12 @@
 [
-  {"id":"txn_1","description":"Lunch at cafeteria","amount":12.50,"category":"Food","date":"2026-09-25","createdAt":"2026-09-25T10:00:00.000Z","updatedAt":"2026-09-25T10:00:00.000Z"},
-  {"id":"txn_2","description":"Chemistry textbook","amount":89.99,"category":"Books","date":"2026-09-23","createdAt":"2026-09-23T10:00:00.000Z","updatedAt":"2026-09-23T10:00:00.000Z"},
-  {"id":"txn-3","description":"Bus pass", "amount":45.00,"category":"Transport","date":"2026-09-20","createdAt":"2026-09-20T10:00:00.000Z","updatedAt":"2026-09-20T10:00:00.000Z"},
-  {"id":"txn-4","description":"coffe with friends","amount":8.75,"cateory":"Entertainment","date":"2026-09-28","createdAt":"2026-09-28T10:00:00.000Z","updatedAt":"2026-09-28T10:00:00.000Z"},
-  {"id":"txn-5","description":"Semester Tuition fee","amount":450.00,"category":"Fees","date":"2026-09-01","createdAt":"2026-09-01T10:00:00.000Z","updatedAt":"2026-09-01T10:00:00.000Z"},
-  {"id":"txn-6","description":"Notebooks and pens","amount":15.20,"category":"Books","date":"2026-09-05","createdAt":"2026-09-05T10:00:00.000Z","updatedAt":"2026-09-05T10:00:00.000Z"},
-  {"id":"txn-7","description":"Taxi fare home","amount":6.00,"category":"Transport","date":"2026-09-12","createdAt":"2026-09-12T10:00:00.000Z","updatedAt":"2026-09-12T10:00:00.000Z"},
-  {"id":"txn-8","description":"Movie night ticket","amount":12.00,"category":"Entertainment","date":"2026-09-15","createdAt":"2026-09-15T10:00:00.000Z","updatedAt":"2026-09-15T10:00:00.000Z"},
-  {"id":"txn-9","description":"Grocery snacks","amount":22.40,"category":"Food","date":"2026-09-18","createdAt":"2026-09-18T10:00:00.000Z","updatedAt":"2026-09-18T10:00:00.000Z"},
-  {"id":"txn-10","description":"Printing assignement","amount":4.50,"category":"Other","date":"2026-09-22","createdAt":"2026-09-22T10:00:00.000Z","updatedAt":"2026-09-22T10:00:00.000Z"}
-
-]     
+  {"id":"txn_1","description":"Lunch at cafeteria","amount":12.50,"category":"Food","date":"2025-09-25","createdAt":"2025-09-25T10:00:00Z","updatedAt":"2025-09-25T10:00:00Z"},
+  {"id":"txn_2","description":"Chemistry textbook","amount":89.99,"category":"Books","date":"2025-09-23","createdAt":"2025-09-23T10:00:00Z","updatedAt":"2025-09-23T10:00:00Z"},
+  {"id":"txn_3","description":"Bus pass","amount":45.00,"category":"Transport","date":"2025-09-20","createdAt":"2025-09-20T10:00:00Z","updatedAt":"2025-09-20T10:00:00Z"},
+  {"id":"txn_4","description":"Coffee with friends","amount":8.75,"category":"Entertainment","date":"2025-09-28","createdAt":"2025-09-28T10:00:00Z","updatedAt":"2025-09-28T10:00:00Z"},
+  {"id":"txn_5","description":"Semester tuition fee","amount":450.00,"category":"Fees","date":"2025-08-15","createdAt":"2025-08-15T10:00:00Z","updatedAt":"2025-08-15T10:00:00Z"},
+  {"id":"txn_6","description":"Notebooks and pens","amount":15.20,"category":"Books","date":"2025-09-02","createdAt":"2025-09-02T10:00:00Z","updatedAt":"2025-09-02T10:00:00Z"},
+  {"id":"txn_7","description":"Taxi ride home","amount":12.00,"category":"Transport","date":"2025-09-10","createdAt":"2025-09-10T10:00:00Z","updatedAt":"2025-09-10T10:00:00Z"},
+  {"id":"txn_8","description":"Movie night ticket","amount":14.50,"category":"Entertainment","date":"2025-09-12","createdAt":"2025-09-12T10:00:00Z","updatedAt":"2025-09-12T10:00:00Z"},
+  {"id":"txn_9","description":"Groceries supermarket","amount":62.40,"category":"Food","date":"2025-09-18","createdAt":"2025-09-18T10:00:00Z","updatedAt":"2025-09-18T10:00:00Z"},
+  {"id":"txn_10","description":"Misc printing charges","amount":5.00,"category":"Other","date":"2025-09-29","createdAt":"2025-09-29T10:00:00Z","updatedAt":"2025-09-29T10:00:00Z"}
+]

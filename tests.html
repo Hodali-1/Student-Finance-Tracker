@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Finance Tracker - Tests</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    .pass { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+    ul { list-style-type: none; padding: 0; }
+    li { padding: 0.5rem; border-bottom: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <h1>Automated Test Suite</h1>
+  <ul id="test-results"></ul>
+
+  <script type="module">
+    import { validateRecord, regexRules } from './scripts/validators.js';
+    import { compileRegex, highlight } from './scripts/search.js';
+
+    const resultsList = document.getElementById('test-results');
+
+    function assert(name, condition) {
+      const li = document.createElement('li');
+      li.innerHTML = `${name}: <span class="${condition ? 'pass' : 'fail'}">${condition ? 'PASS' : 'FAIL'}</span>`;
+      resultsList.appendChild(li);
+    }
+
+    // Run Tests
+    // 1. Regex Amount Validation Test
+    assert('Valid amount format (12.50)', regexRules.amount.test('12.50'));
+    assert('Invalid amount format (abc)', !regexRules.amount.test('abc'));
+
+    // 2. Date Validation Test
+    assert('Valid date format (2025-09-29)', regexRules.date.test('2025-09-29'));
+    assert('Invalid date format (29-09-2025)', !regexRules.date.test('29-09-2025'));
+
+    // 3. Record Validation Integration Test
+    const validTest = validateRecord({ description: 'Books', amount: 45.00, category: 'Books', date: '2025-09-20' });
+    assert('Validate complete correct record', validTest.isValid);
+
+    // 4. Safe Regex Compiler Test
+    const re = compileRegex('coffee');
+    assert('Safe regex compiler creates valid RegExp', re instanceof RegExp);
+    assert('Safe regex compiler handles invalid syntax safely', compileRegex('[invalid') === null);
+
+    // 5. Highlight Test
+    const highlighted = highlight('Morning coffee', compileRegex('coffee'));
+    assert('Match highlighter wraps text in <mark>', highlighted.includes('<mark>coffee</mark>'));
+  </script>
+</body>
+</html>
