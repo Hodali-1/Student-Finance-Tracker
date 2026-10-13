@@ -1,14 +1,92 @@
 const SEED_TRANSACTIONS = [
-    { id: "tx-1", description: "University Tuition Deposit", amount: 1200.00, type: "expense", date: "2026-01-10", category: "Tuition" },
-    { id: "tx-2", description: "Part-time Library Stipend", amount: 450.00, type: "income", date: "2026-01-15", category: "Income" },
-    { id: "tx-3", description: "Textbook: Advanced Data Analysis", amount: 85.50, type: "expense", date: "2026-01-20", category: "Books" },
-    { id: "tx-4", description: "Campus Housing Rent", amount: 400.00, type: "expense", date: "2026-02-01", category: "Housing" },
-    { id: "tx-5", description: "Coding Bootcamp Grant", amount: 600.00, type: "income", date: "2026-02-10", category: "Income" },
-    { id: "tx-6", description: "Grocery Run - Bulk Supplies", amount: 120.30, type: "expense", date: "2026-02-14", category: "Food" },
-    { id: "tx-7", description: "High-speed Fiber Internet", amount: 45.00, type: "expense", date: "2026-02-28", category: "Utilities" },
-    { id: "tx-8", description: "Freelance Web Dev Gig", amount: 350.00, type: "income", date: "2026-03-05", category: "Income" },
-    { id: "tx-9", description: "Lab Equipment & USB Hub", amount: 35.00, type: "expense", date: "2026-03-12", category: "Supplies" },
-    { id: "tx-10", description: "Coffee & Study Snacks", amount: 24.50, type: "expense", date: "2026-03-18", category: "Food" }
+    { 
+        id: "tx-1", 
+        description: "University Tuition Deposit", 
+        amount: 1200.00, 
+        type: "expense", 
+        date: "2026-01-10", 
+        category: "Tuition" 
+    },
+
+    { 
+        id: "tx-2", 
+        description: "Part-time Library Stipend", 
+        amount: 450.00, 
+        type: "income", 
+        date: "2026-01-15", 
+        category: "Income" 
+    },
+
+    { 
+        id: "tx-3", 
+        description: "Textbook: Advanced Data Analysis", 
+        amount: 85.50, 
+        type: "expense", 
+        date: "2026-01-20", 
+        category: "Books" 
+    },
+
+    { 
+        id: "tx-4", 
+        description: "Campus Housing Rent", 
+        amount: 400.00, type: "expense", 
+        date: "2026-02-01", 
+        category: "Housing" 
+    },
+    
+    { 
+        id: "tx-5", 
+        description: "Coding Bootcamp Grant", 
+        amount: 600.00, 
+        type: "income", 
+        date: "2026-02-10", 
+        category: "Income" 
+    },
+
+    { 
+        id: "tx-6", 
+        description: "Grocery Run - Bulk Supplies", 
+        amount: 120.30, 
+        type: "expense", 
+        date: "2026-02-14", 
+        category: "Food" 
+    },
+
+    { 
+        id: "tx-7", 
+        description: "High-speed Fiber Internet", 
+        amount: 45.00, 
+        type: "expense", 
+        date: "2026-02-28", 
+        category: "Utilities" 
+    },
+
+    { 
+        id: "tx-8", 
+        description: "Freelance Web Dev Gig", 
+        amount: 350.00, 
+        type: "income", 
+        date: "2026-03-05", 
+        category: "Income" 
+    },
+
+    { 
+        id: "tx-9", 
+        description: "Lab Equipment & USB Hub", 
+        amount: 35.00, 
+        type: "expense", 
+        date: "2026-03-12", 
+        category: "Supplies" 
+    },
+
+    { 
+        id: "tx-10", 
+        description: "Coffee & Study Snacks", 
+        amount: 24.50, 
+        type: "expense", 
+        date: "2026-03-18", 
+        category: "Food" 
+    }
 ];
 
 class FinanceStore {
