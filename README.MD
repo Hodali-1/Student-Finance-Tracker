@@ -1,30 +1,15 @@
-# Student Finance Tracker
+# Student Finance TrackerProject
 
-## Overview
-The **Student Finance Tracker** is a high-performance, fully responsive web application built for students to manage, track, and analyze personal financial records securely and efficiently. Featuring a modern dark-mode glassmorphism interface, it provides real-time validation, dynamic budgeting alerts, and modular architecture.
-
-* **Theme:** Student Finance Tracker
-* **Live Demo URL:** <https://github.com/Hodali-1/Student-Finance-Tracker.git
-* **Demo Video Walkthrough:** 
-
-# Student Finance Tracker 🚀
-
-## Overview
-The **Student Finance Tracker** is a high-performance, fully responsive web application engineered for students to manage, track, and analyze personal financial records securely, efficiently, and with advanced accessibility compliance. Designed around a modern dark-mode glassmorphic aesthetic using **Space Grotesk** and **JetBrains Mono** typography, the application bridges robust state management with an intuitive user experience.
-
-* **Theme:** Student Finance Tracker
-* **Live Demo URL:** [Insert GitHub Pages Link Here]
-* **Demo Video Walkthrough:** [Insert YouTube / Loom Video Link Here]
-
+ OverviewThe Student Finance Tracker is a comprehensive, production-grade web application designed to help students record, monitor, and analyze financial transactions. Built with vanilla JavaScript (ES6+ modules), modern CSS3 with a custom dark-mode glassmorphic theme, and semantic HTML5, the application fulfills rigorous summative assessment requirements (Milestones 1 through 7). It emphasizes modular architecture, input validation via regular expressions, safe search execution, robust error handling, and full accessibility (A11y) compliance.
 ---
+ # Technical Architecture
+ The codebase is structured into isolated, maintainable modules to ensure a clean separation of concerns:
+ 
+**PlaintextStudent-Finance-Tracker/**
 
-## Architecture & Modular Design
-To ensure maintainability, scalability, and clean separation of concerns, the application is built using **Vanilla ES6+ JavaScript modules**:
-
-<text
-├── index.html              # Semantic HTML markup & layout structure
-├── tests.html              # Automated assertion test suite
-├── seed.json               # Initial robust seed records (large amounts, edge dates, tricky strings)
+├── index.html              # Core application layout and semantic markup
+├── tests.html              # Automated test suite for validation and search logic
+├── seed.json               # Initial dataset featuring edge dates, large amounts, and complex strings
 ├── styles/
 │   └── style.css           # Custom CSS styling (dark-mode glassmorphism, responsive breakpoints)
 └── scripts/
