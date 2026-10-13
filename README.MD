@@ -7,30 +7,33 @@ The **Student Finance Tracker** is a high-performance, fully responsive web appl
 * **Live Demo URL:** <https://github.com/Hodali-1/Student-Finance-Tracker.git
 * **Demo Video Walkthrough:** 
 
-# Student Finance Tracker
+# Student Finance Tracker 🚀
 
 ## Overview
 The **Student Finance Tracker** is a high-performance, fully responsive web application engineered for students to manage, track, and analyze personal financial records securely, efficiently, and with advanced accessibility compliance. Designed around a modern dark-mode glassmorphic aesthetic using **Space Grotesk** and **JetBrains Mono** typography, the application bridges robust state management with an intuitive user experience.
+
+* **Theme:** Student Finance Tracker
+* **Live Demo URL:** [Insert GitHub Pages Link Here]
+* **Demo Video Walkthrough:** [Insert YouTube / Loom Video Link Here]
 
 ---
 
 ## Architecture & Modular Design
 To ensure maintainability, scalability, and clean separation of concerns, the application is built using **Vanilla ES6+ JavaScript modules**:
 
-
+<text
 ├── index.html              # Semantic HTML markup & layout structure
-
 ├── tests.html              # Automated assertion test suite
-
 ├── seed.json               # Initial robust seed records (large amounts, edge dates, tricky strings)
 ├── styles/
-│   └── style.css           # Custom CSS3 dark-mode theme, glassmorphism, & 3 breakpoints
+│   └── style.css           # Custom CSS styling (dark-mode glassmorphism, responsive breakpoints)
 └── scripts/
     ├── storage.js          # Handles localStorage persistence and JSON export/import
     ├── state.js            # Centralized application state manager and reactive data flow
     ├── validators.js       # Regular expression rule engine and inline error handlers
     ├── search.js           # Safe regex compiler with real-time text matching & <mark highlighting
     └── ui.js               # DOM rendering, event delegation, sorting, inline editing, & ARIA alerts >
+
 ---
 ## Features
 * **Modular JavaScript Architecture:** Clean separation of concerns across dedicated modules for storage (`storage.js`), state management (`state.js`), UI rendering (`ui.js`), regex validation (`validators.js`), and safe searching (`search.js`).
@@ -45,4 +48,4 @@ To ensure maintainability, scalability, and clean separation of concerns, the ap
 ## Setup & Installation
  Clone the repository:
  
-   git clone https://github.com/Hodali-1/Student-Finance-Tracker.git
+   git clone [https://github.com/Hodali-1/Student-Finance-Tracker.git]
