@@ -7,19 +7,16 @@ The **Student Finance Tracker** is a high-performance, fully responsive web appl
 * **Live Demo URL:** <https://github.com/Hodali-1/Student-Finance-Tracker.git
 * **Demo Video Walkthrough:** 
 
-# Student Finance Tracker 🚀
+# Student Finance Tracker
 
 ## Overview
 The **Student Finance Tracker** is a high-performance, fully responsive web application engineered for students to manage, track, and analyze personal financial records securely, efficiently, and with advanced accessibility compliance. Designed around a modern dark-mode glassmorphic aesthetic using **Space Grotesk** and **JetBrains Mono** typography, the application bridges robust state management with an intuitive user experience.
-
-* **Theme:** Student Finance Tracker
-* **Live Demo URL:** [Insert GitHub Pages Link Here]
-* **Demo Video Walkthrough:** [Insert YouTube / Loom Video Link Here]
 
 ---
 
 ## Architecture & Modular Design
 To ensure maintainability, scalability, and clean separation of concerns, the application is built using **Vanilla ES6+ JavaScript modules**:
+
 
 <text
 ├── index.html              # Semantic HTML markup & layout structure
@@ -48,4 +45,4 @@ To ensure maintainability, scalability, and clean separation of concerns, the ap
 ## Setup & Installation
  Clone the repository:
  
-   git clone [https://github.com/Hodali-1/Student-Finance-Tracker.git]
+   git clone https://github.com/Hodali-1/Student-Finance-Tracker.git
