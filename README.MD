@@ -16,21 +16,6 @@ The **Student Finance Tracker** is a high-performance, fully responsive web appl
 
 ## Architecture & Modular Design
 To ensure maintainability, scalability, and clean separation of concerns, the application is built using **Vanilla ES6+ JavaScript modules**:
-
-
-<text
-├── index.html              # Semantic HTML markup & layout structure
-├── tests.html              # Automated assertion test suite
-├── seed.json               # Initial robust seed records (large amounts, edge dates, tricky strings)
-├── styles/
-│   └── style.css           # Custom CSS3 dark-mode theme, glassmorphism, & 3 breakpoints
-└── scripts/
-    ├── storage.js          # Handles localStorage persistence and JSON export/import
-    ├── state.js            # Centralized application state manager and reactive data flow
-    ├── validators.js       # Regular expression rule engine and inline error handlers
-    ├── search.js           # Safe regex compiler with real-time text matching & <mark highlighting
-    └── ui.js               # DOM rendering, event delegation, sorting, inline editing, & ARIA alerts >
-
 ---
 ## Features
 * **Modular JavaScript Architecture:** Clean separation of concerns across dedicated modules for storage (`storage.js`), state management (`state.js`), UI rendering (`ui.js`), regex validation (`validators.js`), and safe searching (`search.js`).
