@@ -7,7 +7,14 @@
 * **Theme:** Student Finance Tracker
 * **Live Demo URL:** https://hodali-1.github.io/Student-Finance-Tracker/
 * **Demo Video Walkthrough:** 
-
+---
+# Architecture & Modular Design
+Built using Vanilla ES6+ JavaScript Modules With clean separation of concerns:
+ - `storage.js`:Handles localStorage and JSON import/export.
+ - `state.js`: Centralized application state manager.
+ - `Validators.js`: Regular expression validation rule egnine.
+ - `search.js`: safe regex compiler with text highlighting.
+ - `ui.js`: DOM rendering, sorting, inline editing, and ARIA live alerts.
 ---
 ## Features
 * **Modular JavaScript Architecture:** Clean separation of concerns across dedicated modules for storage (`storage.js`), state management (`state.js`), UI rendering (`ui.js`), regex validation (`validators.js`), and safe searching (`search.js`).

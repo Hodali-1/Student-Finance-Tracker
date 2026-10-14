@@ -1,3 +1,17 @@
+import{ initState } from './state.js';
+import{ initUI} from'./ui.js';
+import{ loadFromStorage, saveToStorage} from './storage.js';
+
+document.addEventListener('DOMContentLoaded',() => {
+    console.log('Initializing Student Finance Tracker...');
+    
+    // Initializing State and Load storage
+    initState();
+    
+    //Initiazing UI event Listeners and Rendering
+    initUI();
+})
+
 const SEED_TRANSACTIONS = [
     { 
         id: "tx-1", 

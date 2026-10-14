@@ -7,5 +7,5 @@ export function compileRegex(input, flags = 'i'){
 }
 export function highlight(text,re){
     if (!re || !text) return text;
-    return String(text).replace(re,match => '<mark>${match}</mark>');
+    return String(text).replace(re,match => `<mark>${match}</marks>`);
 }
