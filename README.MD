@@ -1,7 +1,7 @@
 # Student Finance TrackerProject
 
  *Overview*
- 
+
  The Student Finance Tracker is a comprehensive, production-grade web application designed to help students record, monitor, and analyze financial transactions. Built with vanilla JavaScript (ES6+ modules), modern CSS3 with a custom dark-mode glassmorphic theme, and semantic HTML5, the application fulfills rigorous summative assessment requirements (Milestones 1 through 7). It emphasizes modular architecture, input validation via regular expressions, safe search execution, robust error handling, and full accessibility (A11y) compliance.
 
 ---
@@ -16,6 +16,16 @@
 ---
 
 ## Setup & Installation
- Clone the repository:
- 
-   git clone [https://github.com/Hodali-1/Student-Finance-Tracker.git]
+
+ *Clone the repository:*
+ ```Bash  
+ git clone https://github.com/Hodali-1/Student-Finance-Tracker.git
+
+Navigate into the Directory:
+
+```Bash
+cd Student-Finance-Tracker
+
+Launch a Local Development Server:
+```Bash
+npx serve . 
