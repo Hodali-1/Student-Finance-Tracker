@@ -14,10 +14,11 @@
 * **Persistence & Settings:** Automatic synchronization with `localStorage`, complete JSON import/export handling, and manual currency configuration.
 
 ---
+```bash
 
-## Setup & Installation
+# Setup & Installation
 
- *Clone the repository:*
+Clone the repository:
  ```Bash  
  git clone https://github.com/Hodali-1/Student-Finance-Tracker.git
 
