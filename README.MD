@@ -1,6 +1,8 @@
 # Student Finance TrackerProject
 
- OverviewThe Student Finance Tracker is a comprehensive, production-grade web application designed to help students record, monitor, and analyze financial transactions. Built with vanilla JavaScript (ES6+ modules), modern CSS3 with a custom dark-mode glassmorphic theme, and semantic HTML5, the application fulfills rigorous summative assessment requirements (Milestones 1 through 7). It emphasizes modular architecture, input validation via regular expressions, safe search execution, robust error handling, and full accessibility (A11y) compliance.
+ *Overview*
+ 
+ The Student Finance Tracker is a comprehensive, production-grade web application designed to help students record, monitor, and analyze financial transactions. Built with vanilla JavaScript (ES6+ modules), modern CSS3 with a custom dark-mode glassmorphic theme, and semantic HTML5, the application fulfills rigorous summative assessment requirements (Milestones 1 through 7). It emphasizes modular architecture, input validation via regular expressions, safe search execution, robust error handling, and full accessibility (A11y) compliance.
 
 ---
 ## Features
