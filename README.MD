@@ -14,9 +14,9 @@
 * **Persistence & Settings:** Automatic synchronization with `localStorage`, complete JSON import/export handling, and manual currency configuration.
 
 ---
-```bash
-
 # Setup & Installation
+
+```Bash
 
 Clone the repository:
  ```Bash  
