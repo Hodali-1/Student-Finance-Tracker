@@ -1,0 +1,561 @@
+{
+  "today": {
+    "date": "2026-10-18",
+    "totalEvents": 0,
+    "totalAISuggestions": 0,
+    "totalAILines": 0,
+    "totalManualLines": 0,
+    "aiPercentage": 0,
+    "averageReviewTime": 0,
+    "sessionCount": 0,
+    "toolBreakdown": {
+      "copilot": {
+        "tool": "copilot",
+        "suggestionCount": 0,
+        "acceptedCount": 0,
+        "rejectedCount": 0,
+        "linesGenerated": 0,
+        "averageReviewTime": 0
+      },
+      "cursor": {
+        "tool": "cursor",
+        "suggestionCount": 0,
+        "acceptedCount": 0,
+        "rejectedCount": 0,
+        "linesGenerated": 0,
+        "averageReviewTime": 0
+      },
+      "claude-code": {
+        "tool": "claude-code",
+        "suggestionCount": 0,
+        "acceptedCount": 0,
+        "rejectedCount": 0,
+        "linesGenerated": 0,
+        "averageReviewTime": 0
+      }
+    },
+    "reviewQualityScore": 0,
+    "unreviewedLines": 0,
+    "unreviewedPercentage": 0
+  },
+  "yesterday": null,
+  "last7Days": [
+    {
+      "date": "2026-10-12",
+      "totalEvents": 787,
+      "totalAISuggestions": 599,
+      "totalAILines": 83418,
+      "totalManualLines": 180,
+      "aiPercentage": 99.7846838441111,
+      "averageReviewTime": 0,
+      "sessionCount": 0,
+      "toolBreakdown": {
+        "copilot": {
+          "tool": "copilot",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "cursor": {
+          "tool": "cursor",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "claude-code": {
+          "tool": "claude-code",
+          "suggestionCount": 599,
+          "acceptedCount": 2,
+          "rejectedCount": 0,
+          "linesGenerated": 87869,
+          "averageReviewTime": 0
+        }
+      },
+      "reviewQualityScore": 1,
+      "unreviewedLines": 82635,
+      "unreviewedPercentage": 96,
+      "agentSessionCount": 0,
+      "averageFileReviewTime": 732817.75,
+      "reviewedFilesCount": 12
+    },
+    {
+      "date": "2026-10-13",
+      "totalEvents": 151,
+      "totalAISuggestions": 76,
+      "totalAILines": 221,
+      "totalManualLines": 69,
+      "aiPercentage": 76.20689655172413,
+      "averageReviewTime": 0,
+      "sessionCount": 0,
+      "toolBreakdown": {
+        "copilot": {
+          "tool": "copilot",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "cursor": {
+          "tool": "cursor",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "claude-code": {
+          "tool": "claude-code",
+          "suggestionCount": 76,
+          "acceptedCount": 6,
+          "rejectedCount": 0,
+          "linesGenerated": 2819,
+          "averageReviewTime": 0
+        }
+      },
+      "reviewQualityScore": 1,
+      "unreviewedLines": 101,
+      "unreviewedPercentage": 0,
+      "agentSessionCount": 0,
+      "averageFileReviewTime": 1483991.6923076923,
+      "reviewedFilesCount": 13
+    },
+    {
+      "date": "2026-10-14",
+      "totalEvents": 135,
+      "totalAISuggestions": 26,
+      "totalAILines": 55,
+      "totalManualLines": 105,
+      "aiPercentage": 34.375,
+      "averageReviewTime": 0,
+      "sessionCount": 0,
+      "toolBreakdown": {
+        "copilot": {
+          "tool": "copilot",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "cursor": {
+          "tool": "cursor",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "claude-code": {
+          "tool": "claude-code",
+          "suggestionCount": 26,
+          "acceptedCount": 1,
+          "rejectedCount": 0,
+          "linesGenerated": 204,
+          "averageReviewTime": 0
+        }
+      },
+      "reviewQualityScore": 33,
+      "unreviewedLines": 42,
+      "unreviewedPercentage": 42,
+      "agentSessionCount": 0,
+      "averageFileReviewTime": 0,
+      "reviewedFilesCount": 5
+    },
+    {
+      "date": "2026-10-15",
+      "totalEvents": 112,
+      "totalAISuggestions": 36,
+      "totalAILines": 36,
+      "totalManualLines": 74,
+      "aiPercentage": 32.72727272727273,
+      "averageReviewTime": 0,
+      "sessionCount": 0,
+      "toolBreakdown": {
+        "copilot": {
+          "tool": "copilot",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "cursor": {
+          "tool": "cursor",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "claude-code": {
+          "tool": "claude-code",
+          "suggestionCount": 36,
+          "acceptedCount": 3,
+          "rejectedCount": 0,
+          "linesGenerated": 11611,
+          "averageReviewTime": 0
+        }
+      },
+      "reviewQualityScore": 69,
+      "unreviewedLines": 0,
+      "unreviewedPercentage": 0,
+      "agentSessionCount": 0,
+      "averageFileReviewTime": 0,
+      "reviewedFilesCount": 6
+    },
+    {
+      "date": "2026-10-16",
+      "totalEvents": 0,
+      "totalAISuggestions": 0,
+      "totalAILines": 0,
+      "totalManualLines": 0,
+      "aiPercentage": 0,
+      "averageReviewTime": 0,
+      "sessionCount": 0,
+      "toolBreakdown": {
+        "copilot": {
+          "tool": "copilot",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "cursor": {
+          "tool": "cursor",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "claude-code": {
+          "tool": "claude-code",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        }
+      },
+      "reviewQualityScore": 41,
+      "unreviewedLines": 0,
+      "unreviewedPercentage": 0,
+      "agentSessionCount": 0,
+      "averageFileReviewTime": 0,
+      "reviewedFilesCount": 6
+    },
+    {
+      "date": "2026-10-17",
+      "totalEvents": 0,
+      "totalAISuggestions": 0,
+      "totalAILines": 0,
+      "totalManualLines": 0,
+      "aiPercentage": 0,
+      "averageReviewTime": 0,
+      "sessionCount": 0,
+      "toolBreakdown": {
+        "copilot": {
+          "tool": "copilot",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "cursor": {
+          "tool": "cursor",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "claude-code": {
+          "tool": "claude-code",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        }
+      },
+      "reviewQualityScore": 0,
+      "unreviewedLines": 0,
+      "unreviewedPercentage": 0,
+      "agentSessionCount": 0
+    },
+    {
+      "date": "2026-10-18",
+      "totalEvents": 0,
+      "totalAISuggestions": 0,
+      "totalAILines": 0,
+      "totalManualLines": 0,
+      "aiPercentage": 0,
+      "averageReviewTime": 0,
+      "sessionCount": 0,
+      "toolBreakdown": {
+        "copilot": {
+          "tool": "copilot",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "cursor": {
+          "tool": "cursor",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        },
+        "claude-code": {
+          "tool": "claude-code",
+          "suggestionCount": 0,
+          "acceptedCount": 0,
+          "rejectedCount": 0,
+          "linesGenerated": 0,
+          "averageReviewTime": 0
+        }
+      },
+      "reviewQualityScore": 0,
+      "unreviewedLines": 0,
+      "unreviewedPercentage": 0,
+      "agentSessionCount": 0
+    }
+  ],
+  "trends": {
+    "aiPercentage": "decreasing",
+    "reviewTime": "stable"
+  },
+  "toolBreakdown": [
+    {
+      "tool": "copilot",
+      "suggestionCount": 0,
+      "acceptedCount": 0,
+      "rejectedCount": 0,
+      "linesGenerated": 0,
+      "averageReviewTime": 0
+    },
+    {
+      "tool": "cursor",
+      "suggestionCount": 0,
+      "acceptedCount": 0,
+      "rejectedCount": 0,
+      "linesGenerated": 0,
+      "averageReviewTime": 0
+    },
+    {
+      "tool": "claude-code",
+      "suggestionCount": 0,
+      "acceptedCount": 0,
+      "rejectedCount": 0,
+      "linesGenerated": 0,
+      "averageReviewTime": 0
+    }
+  ],
+  "codingModes": {
+    "agent": {
+      "lines": 0,
+      "events": 0,
+      "reviewedFiles": 0,
+      "totalFiles": 3,
+      "avgReviewScore": 0,
+      "percentage": 0
+    },
+    "inline": {
+      "lines": 0,
+      "events": 0,
+      "acceptances": 0,
+      "quickAcceptances": 0,
+      "percentage": 0
+    },
+    "chatPaste": {
+      "lines": 0,
+      "events": 0,
+      "avgReviewScore": 0,
+      "percentage": 0
+    },
+    "totalLines": 0
+  },
+  "threshold": {
+    "level": "mid",
+    "blindApprovalTime": 3000,
+    "maxAIPercentage": 60,
+    "minReviewTime": 3000,
+    "streakThreshold": 4
+  },
+  "config": {
+    "experienceLevel": "mid",
+    "blindApprovalThreshold": 2000,
+    "alertFrequency": "medium",
+    "enableGamification": false,
+    "anonymizePaths": true,
+    "trackedTools": {
+      "copilot": true,
+      "cursor": true,
+      "claudeCode": true
+    },
+    "onboardingCompleted": false
+  },
+  "snoozeState": {
+    "snoozed": false
+  },
+  "streakDays": 2,
+  "unreviewedFiles": [
+    {
+      "filePath": "/Users/mac/Student Finance Tracker/Student-Finance-Tracker/scripts/search.js",
+      "date": "2026-10-18",
+      "tool": "ai",
+      "reviewQuality": "none",
+      "reviewScore": 0,
+      "isReviewed": false,
+      "linesGenerated": 1,
+      "linesChanged": 1,
+      "linesSinceReview": 0,
+      "linesAdded": 0,
+      "linesRemoved": 0,
+      "charactersCount": 0,
+      "agentSessionId": "manual-session",
+      "isAgentGenerated": true,
+      "wasFileOpen": false,
+      "firstGeneratedAt": 1792150689943,
+      "totalReviewTime": 0,
+      "modificationCount": 0,
+      "totalTimeInFocus": 0,
+      "scrollEventCount": 0,
+      "cursorMovementCount": 0,
+      "editsMade": false,
+      "reviewSessionsCount": 0,
+      "reviewedInTerminal": false
+    },
+    {
+      "filePath": "/Users/mac/Student Finance Tracker/Student-Finance-Tracker/.git/worktrees/unleashed-halloumi/kilo-agent-manager-metadata.json",
+      "date": "2026-10-18",
+      "tool": "ai",
+      "reviewQuality": "none",
+      "reviewScore": 0,
+      "isReviewed": false,
+      "linesGenerated": 2,
+      "linesChanged": 2,
+      "linesSinceReview": 0,
+      "linesAdded": 0,
+      "linesRemoved": 0,
+      "charactersCount": 0,
+      "agentSessionId": "manual-session",
+      "isAgentGenerated": true,
+      "wasFileOpen": false,
+      "firstGeneratedAt": 1792150689943,
+      "totalReviewTime": 0,
+      "modificationCount": 0,
+      "totalTimeInFocus": 0,
+      "scrollEventCount": 0,
+      "cursorMovementCount": 0,
+      "editsMade": false,
+      "reviewSessionsCount": 0,
+      "reviewedInTerminal": false
+    },
+    {
+      "filePath": "/Users/mac/Student Finance Tracker/Student-Finance-Tracker/scripts/state.js",
+      "date": "2026-10-18",
+      "tool": "ai",
+      "reviewQuality": "none",
+      "reviewScore": 0,
+      "isReviewed": false,
+      "linesGenerated": 39,
+      "linesChanged": 39,
+      "linesSinceReview": 0,
+      "linesAdded": 0,
+      "linesRemoved": 0,
+      "charactersCount": 0,
+      "agentSessionId": "manual-session",
+      "isAgentGenerated": true,
+      "wasFileOpen": false,
+      "firstGeneratedAt": 1792150689926,
+      "totalReviewTime": 0,
+      "modificationCount": 0,
+      "totalTimeInFocus": 0,
+      "scrollEventCount": 0,
+      "cursorMovementCount": 0,
+      "editsMade": false,
+      "reviewSessionsCount": 0,
+      "reviewedInTerminal": false
+    }
+  ],
+  "terminalReviewedFiles": [],
+  "agentSessions": [],
+  "workspace": {
+    "name": "Student-Finance-Tracker",
+    "path": "/Users/mac/Student Finance Tracker/Student-Finance-Tracker",
+    "isMultiRoot": false
+  },
+  "coreMetrics": {
+    "authorship": {
+      "aiPercentage": 0,
+      "manualPercentage": 100,
+      "aiLines": 0,
+      "manualLines": 0,
+      "status": "good",
+      "target": 60
+    },
+    "ownership": {
+      "score": 0,
+      "category": "none",
+      "unreviewedPercentage": 0,
+      "unreviewedLines": 0,
+      "filesNeedingReview": 3
+    },
+    "skillHealth": {
+      "status": "needs-attention",
+      "score": 67,
+      "aiBalanceScore": 100,
+      "reviewQualityScore": 33,
+      "consistencyScore": 71,
+      "trend": "declining",
+      "daysWithActivity": 5,
+      "issues": [
+        "2 days with >80% AI (AI dependency risk)",
+        "Low review quality (32.8/100 - improve code review)"
+      ],
+      "recommendations": [
+        "Aim for 30-50% AI assistance - avoid over-reliance on AI tools",
+        "Spend more time reviewing AI code before accepting changes"
+      ],
+      "extremeAIDays": 2,
+      "variance": 895
+    }
+  },
+  "fileTree": {
+    "name": "root",
+    "path": "",
+    "type": "directory",
+    "children": [],
+    "stats": {
+      "filesChanged": 0,
+      "filesReviewed": 0,
+      "linesAdded": 0,
+      "linesRemoved": 0
+    },
+    "isExpanded": true,
+    "depth": 0
+  },
+  "fileTreeStats": {
+    "totalFiles": 0,
+    "totalAdditions": 0,
+    "totalDeletions": 0,
+    "totalChanges": 0,
+    "filesAdded": 0,
+    "filesModified": 0,
+    "filesDeleted": 0,
+    "reviewedFiles": 0,
+    "unreviewedFiles": 0,
+    "reviewProgress": 0
+  }
+}
