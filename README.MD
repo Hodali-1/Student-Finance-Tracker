@@ -6,7 +6,7 @@
 
 * **Theme:** Student Finance Tracker
 * **Live Demo URL:** https://hodali-1.github.io/Student-Finance-Tracker/
-* **Demo Video Walkthrough:** 
+* **Demo Video Walkthrough:** https://www.loom.com/share/bccbee0dabea4caf985219632b1e44e1
 ---
 # Architecture & Modular Design
 Built using Vanilla ES6+ JavaScript Modules With clean separation of concerns:
